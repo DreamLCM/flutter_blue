@@ -269,7 +269,7 @@ public class FlutterBluePlugin implements FlutterPlugin, ActivityAware, MethodCa
                     p.addDevices(ProtoMaker.from(d));
                 }
                 result.success(p.build().toByteArray());
-                log(LogLevel.EMERGENCY, "mDevices size: " + mDevices.size());
+//                log(LogLevel.EMERGENCY, "mDevices size: " + mDevices.size());
                 break;
             }
 
@@ -899,7 +899,7 @@ public class FlutterBluePlugin implements FlutterPlugin, ActivityAware, MethodCa
 
         @Override
         public void onCharacteristicChanged(BluetoothGatt gatt, BluetoothGattCharacteristic characteristic) {
-            log(LogLevel.DEBUG, "[onCharacteristicChanged] uuid: " + characteristic.getUuid().toString());
+//            log(LogLevel.DEBUG, "[onCharacteristicChanged] uuid: " + characteristic.getUuid().toString());
             Protos.OnCharacteristicChanged.Builder p = Protos.OnCharacteristicChanged.newBuilder();
             p.setRemoteId(gatt.getDevice().getAddress());
             p.setCharacteristic(ProtoMaker.from(gatt.getDevice(), characteristic, gatt));
